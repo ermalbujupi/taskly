@@ -15,6 +15,7 @@
 		9839DB9B25CDF9900006793E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9839DB9925CDF9900006793E /* LaunchScreen.storyboard */; };
 		9839DBA925CDFB0A0006793E /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBA825CDFB0A0006793E /* WelcomeView.swift */; };
 		9839DBAE25CDFD140006793E /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBAD25CDFD140006793E /* LogInScreen.swift */; };
+		9839DBB125CF3B2E0006793E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBB025CF3B2E0006793E /* RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9839DB9C25CDF9900006793E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9839DBA825CDFB0A0006793E /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		9839DBAD25CDFD140006793E /* LogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
+		9839DBB025CF3B2E0006793E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				9839DB9225CDF98E0006793E /* ContentView.swift */,
 				9839DBA825CDFB0A0006793E /* WelcomeView.swift */,
 				9839DBAD25CDFD140006793E /* LogInScreen.swift */,
+				9839DBB025CF3B2E0006793E /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				9839DBAE25CDFD140006793E /* LogInScreen.swift in Sources */,
 				9839DB8F25CDF98E0006793E /* AppDelegate.swift in Sources */,
 				9839DBA925CDFB0A0006793E /* WelcomeView.swift in Sources */,
+				9839DBB125CF3B2E0006793E /* RegisterView.swift in Sources */,
 				9839DB9125CDF98E0006793E /* SceneDelegate.swift in Sources */,
 				9839DB9325CDF98E0006793E /* ContentView.swift in Sources */,
 			);

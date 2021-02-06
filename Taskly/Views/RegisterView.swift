@@ -40,10 +40,16 @@ struct RegisterView: View {
                         HStack {
                             Spacer()
                             Text("Sign Up")
+                                .font(.title)
+                                .frame(height: 50.0)
+                                .frame(width: 300)
+                                .cornerRadius(20.0)
+                                .foregroundColor(.black)
                             Spacer()
                         }
-                    })
+                    }).listRowBackground(Color.orange.opacity(0.8))
                 }.listStyle(GroupedListStyle())
+                
             }.navigationTitle("Register")
         }
     }

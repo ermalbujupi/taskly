@@ -16,6 +16,7 @@
 		9839DBA925CDFB0A0006793E /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBA825CDFB0A0006793E /* WelcomeView.swift */; };
 		9839DBAE25CDFD140006793E /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBAD25CDFD140006793E /* LogInScreen.swift */; };
 		9839DBB125CF3B2E0006793E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBB025CF3B2E0006793E /* RegisterView.swift */; };
+		9894355F25CF4E72005CC936 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9894355E25CF4E72005CC936 /* ScheduleView.swift */; };
 		98FFA0AA25D0903800D8229C /* TasksTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FFA0A925D0903800D8229C /* TasksTabView.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		9839DBA825CDFB0A0006793E /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		9839DBAD25CDFD140006793E /* LogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
 		9839DBB025CF3B2E0006793E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		9894355E25CF4E72005CC936 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		98FFA0A925D0903800D8229C /* TasksTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 				9839DB8F25CDF98E0006793E /* AppDelegate.swift in Sources */,
 				9839DBA925CDFB0A0006793E /* WelcomeView.swift in Sources */,
 				9839DBB125CF3B2E0006793E /* RegisterView.swift in Sources */,
+				9894355F25CF4E72005CC936 /* ScheduleView.swift in Sources */,
 				9839DB9125CDF98E0006793E /* SceneDelegate.swift in Sources */,
 				98FFA0AA25D0903800D8229C /* TasksTabView.swift in Sources */,
 				9839DB9325CDF98E0006793E /* ContentView.swift in Sources */,

@@ -16,6 +16,7 @@
 		9839DBA925CDFB0A0006793E /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBA825CDFB0A0006793E /* WelcomeView.swift */; };
 		9839DBAE25CDFD140006793E /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBAD25CDFD140006793E /* LogInScreen.swift */; };
 		9839DBB125CF3B2E0006793E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBB025CF3B2E0006793E /* RegisterView.swift */; };
+		98FFA0AA25D0903800D8229C /* TasksTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FFA0A925D0903800D8229C /* TasksTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9839DBA825CDFB0A0006793E /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		9839DBAD25CDFD140006793E /* LogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
 		9839DBB025CF3B2E0006793E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		98FFA0A925D0903800D8229C /* TasksTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +86,10 @@
 		9839DBA725CDFAF20006793E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9839DB9225CDF98E0006793E /* ContentView.swift */,
 				9839DBA825CDFB0A0006793E /* WelcomeView.swift */,
 				9839DBAD25CDFD140006793E /* LogInScreen.swift */,
 				9839DBB025CF3B2E0006793E /* RegisterView.swift */,
+				98FFA0A925D0903800D8229C /* TasksTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +169,7 @@
 				9839DBA925CDFB0A0006793E /* WelcomeView.swift in Sources */,
 				9839DBB125CF3B2E0006793E /* RegisterView.swift in Sources */,
 				9839DB9125CDF98E0006793E /* SceneDelegate.swift in Sources */,
+				98FFA0AA25D0903800D8229C /* TasksTabView.swift in Sources */,
 				9839DB9325CDF98E0006793E /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

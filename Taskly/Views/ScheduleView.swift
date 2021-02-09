@@ -20,19 +20,19 @@ struct ScheduleView: View {
                 }
             }
         }
-            .padding()
-            .navigationBarItems(trailing:                     Button(action: {
-                showingCreateTaskSheet = true
-            }) {
+        .padding()
+        .navigationBarItems(trailing: Button(action: {
+            showingCreateTaskSheet = true
+        }) {
             Image(systemName: "plus")
                 .foregroundColor(.white)
                 .padding()
                 .background(Color.orange.opacity(0.8))
                 .cornerRadius(10.0)
-            }
-            .sheet(isPresented: $showingCreateTaskSheet) {
-                NewTaskView()
-            }
+        }
+        .sheet(isPresented: $showingCreateTaskSheet) {
+            NewTaskView()
+        }
         )
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Task: ObservableObject, Identifiable {
     
@@ -13,6 +14,7 @@ class Task: ObservableObject, Identifiable {
     @Published var title = ""
     @Published var time = Date()
     @Published var note = ""
+    @Published var priority = "None"
     
     init () {}
     
@@ -21,5 +23,18 @@ class Task: ObservableObject, Identifiable {
         dateFormatter.dateFormat = "HH:mm"
         
         return dateFormatter.string(from: time)
+    }
+    
+    public func colorForPriority(priority: String) -> Color {
+        switch priority {
+        case "Low":
+            return Color.green
+        case "Medium":
+            return Color.blue
+        case "High":
+            return Color.red
+        default:
+            return Color.blue
+        }
     }
 }

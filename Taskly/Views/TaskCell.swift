@@ -14,12 +14,13 @@ struct TaskCell: View {
     var body: some View {
         VStack {
             HStack() {
-                Image(systemName: "clock.fill")
+                Image(systemName: "largecircle.fill.circle")
                     .resizable()
                     .frame(width: 32.0, height: 32.0)
                     .padding(15)
                     .cornerRadius(10.0)
-                    .foregroundColor(Color.red) 
+                    .foregroundColor(task.colorForPriority(priority: task.priority))
+                    
                 Text($task.title.wrappedValue)
                     .padding()
                     .foregroundColor(.black)
@@ -30,9 +31,9 @@ struct TaskCell: View {
                     .font(.title2)
             }
             .padding(.leading, 15.0)
-            .background(Color.gray.opacity(0.3))
-        }.cornerRadius(20.0)
-        
+        }
+        .background(Color.gray.opacity(0.3))
+        .cornerRadius(20.0)
     }
 }
 

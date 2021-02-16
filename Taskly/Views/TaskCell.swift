@@ -12,33 +12,47 @@ struct TaskCell: View {
     @StateObject var task = Task()
     
     var body: some View {
-        VStack {
-            HStack() {
-                Image(systemName: "largecircle.fill.circle")
-                    .resizable()
-                    .frame(width: 32.0, height: 32.0)
-                    .padding(15)
-                    .cornerRadius(10.0)
-                    .foregroundColor(task.colorForPriority(priority: task.priority))
-                    
-                Text($task.title.wrappedValue)
+        HStack {
+            if task.completed {
+                Image(systemName: "checkmark.circle.fill")
                     .padding()
-                    .foregroundColor(.black)
                     .font(.title)
-                Spacer()
-                Text(task.hour())
+            } else {
+                Image(systemName: "checkmark.circle")
                     .padding()
-                    .font(.title2)
+                    .font(.title)
             }
-            .padding(.leading, 15.0)
+            VStack {
+                HStack() {
+                    Text($task.title.wrappedValue)
+                        .padding(.leading, 10.0)
+                        .font(.title)
+                    Spacer()
+                    Text(task.hour())
+                        .padding()
+                        .font(.title2)
+                }
+                HStack {
+                    Text($task.note.wrappedValue)
+                        .font(.title3)
+                        .padding(.leading, 10.0)
+                        .padding(.bottom, 10.0)
+                    Spacer()
+                }
+            }
         }
-        .background(Color.gray.opacity(0.3))
-        .cornerRadius(20.0)
+        .padding(.top, 10.0)
+        .background(task.completed ? Color.orange.opacity(0.8) : Color.gray.opacity(0.2))
+        .cornerRadius(10.0)
     }
+}
+
+public func update() {
+    
 }
 
 struct TaskCell_Previews: PreviewProvider {
     static var previews: some View {
-        TaskCell(task: Task()).previewLayout(.sizeThatFits)
+        TaskCell(task: testTask2).previewLayout(.sizeThatFits)
     }
 }

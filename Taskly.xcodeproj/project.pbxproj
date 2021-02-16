@@ -17,6 +17,7 @@
 		9839DBAE25CDFD140006793E /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBAD25CDFD140006793E /* LogInScreen.swift */; };
 		9839DBB125CF3B2E0006793E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBB025CF3B2E0006793E /* RegisterView.swift */; };
 		9839DBB425CF4AC70006793E /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBB325CF4AC70006793E /* TaskCell.swift */; };
+		98495B0125DC1F9E0064A99D /* CompletedTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98495B0025DC1F9E0064A99D /* CompletedTasks.swift */; };
 		9894355F25CF4E72005CC936 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9894355E25CF4E72005CC936 /* ScheduleView.swift */; };
 		9894356425CF5D64005CC936 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9894356325CF5D64005CC936 /* Task.swift */; };
 		98FFA09E25D0086E00D8229C /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FFA09D25D0086E00D8229C /* NewTaskView.swift */; };
@@ -37,6 +38,7 @@
 		9839DBAD25CDFD140006793E /* LogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
 		9839DBB025CF3B2E0006793E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		9839DBB325CF4AC70006793E /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		98495B0025DC1F9E0064A99D /* CompletedTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasks.swift; sourceTree = "<group>"; };
 		9894355E25CF4E72005CC936 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		9894356325CF5D64005CC936 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		98FFA09D25D0086E00D8229C /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
@@ -100,12 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				9839DBA825CDFB0A0006793E /* WelcomeView.swift */,
-				9839DBAD25CDFD140006793E /* LogInScreen.swift */,
 				9839DBB025CF3B2E0006793E /* RegisterView.swift */,
-				9839DBB325CF4AC70006793E /* TaskCell.swift */,
+				9839DBAD25CDFD140006793E /* LogInScreen.swift */,
+				98FFA0A925D0903800D8229C /* TasksTabView.swift */,
 				9894355E25CF4E72005CC936 /* ScheduleView.swift */,
 				98FFA09D25D0086E00D8229C /* NewTaskView.swift */,
-				98FFA0A925D0903800D8229C /* TasksTabView.swift */,
+				9839DBB325CF4AC70006793E /* TaskCell.swift */,
+				98495B0025DC1F9E0064A99D /* CompletedTasks.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				9839DB9125CDF98E0006793E /* SceneDelegate.swift in Sources */,
 				9894356425CF5D64005CC936 /* Task.swift in Sources */,
 				98FFA0AA25D0903800D8229C /* TasksTabView.swift in Sources */,
+				98495B0125DC1F9E0064A99D /* CompletedTasks.swift in Sources */,
 				9839DB9325CDF98E0006793E /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

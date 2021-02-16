@@ -19,7 +19,7 @@ struct TasksTabView: View {
                 Text("Tasks")
             }
             NavigationView {
-                Text("Completed")
+                CompletedTasks()
                     .navigationTitle("Completed tasks")
             }
             .tabItem {

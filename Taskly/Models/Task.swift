@@ -14,6 +14,7 @@ class Task: ObservableObject, Identifiable {
     @Published var title = ""
     @Published var time = Date()
     @Published var note = ""
+    @Published var completed = false
     @Published var priority = "None"
     
     init () {}

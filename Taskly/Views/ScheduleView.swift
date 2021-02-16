@@ -11,29 +11,27 @@ struct ScheduleView: View {
     
     @ObservedObject var data = DataController.shared
     @State var showingCreateTaskSheet = false
+    @State var completed = false
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(data.tasks) { task in
-                    TaskCell(task: task)
-                }
+        
+        List {
+            ForEach(data.tasks) { task in
+                TaskCell(task: task)
+                    .onTapGesture {
+                        data.completeTask(id: task.id)
+                    }
             }
         }
-        .padding()
         .navigationBarItems(trailing: Button(action: {
             showingCreateTaskSheet = true
         }) {
-            Image(systemName: "plus")
-                .foregroundColor(.white)
-                .padding()
-                .background(Color.orange.opacity(0.8))
-                .cornerRadius(10.0)
+            Text("Add")
+                .foregroundColor(Color.orange.opacity(0.8))
         }
         .sheet(isPresented: $showingCreateTaskSheet) {
             NewTaskView()
-        }
-        )
+        })
     }
 }
 

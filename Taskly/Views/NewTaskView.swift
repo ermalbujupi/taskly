@@ -60,10 +60,6 @@ struct NewTaskView: View {
                     presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Save")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.orange.opacity(0.8))
-                        .cornerRadius(10.0)
                 }
             )
             

@@ -13,25 +13,48 @@ struct ScheduleView: View {
     @State var showingCreateTaskSheet = false
     @State var completed = false
     
+    static let taskDateFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }()
+    
     var body: some View {
-        
-        List {
-            ForEach(data.tasks) { task in
-                TaskCell(task: task)
-                    .onTapGesture {
-                        data.completeTask(id: task.id)
-                    }
+        ScrollView {
+            HStack {
+                Text("\(Date(), formatter: Self.taskDateFormat)")
+                    .font(.title2)
+                    .bold()
+                    .padding(.top, 20.0)
+                    .padding(.leading, 20.0)
+                Spacer()
             }
+            HStack {
+                Text("You have \(data.tasks.count) tasks.")
+                    .font(.title2)
+                    .padding(.top, 20.0)
+                    .padding(.leading, 20.0)
+                Spacer()
+            }
+            VStack {
+                ForEach(data.tasks) { task in
+                    TaskCell(task: task)
+                        .padding()
+                        .onTapGesture {
+                            data.completeTask(id: task.id)
+                        }
+                }
+            }
+            .padding()
+            .navigationBarItems(trailing: Button(action: {
+                showingCreateTaskSheet = true
+            }) {
+                Text("Add")
+            }
+            .sheet(isPresented: $showingCreateTaskSheet) {
+                NewTaskView()
+            })
         }
-        .navigationBarItems(trailing: Button(action: {
-            showingCreateTaskSheet = true
-        }) {
-            Text("Add")
-                .foregroundColor(Color.orange.opacity(0.8))
-        }
-        .sheet(isPresented: $showingCreateTaskSheet) {
-            NewTaskView()
-        })
     }
 }
 

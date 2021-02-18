@@ -12,9 +12,9 @@ struct TasksTabView: View {
         TabView {
             NavigationView {
                 ScheduleView()
-                    .navigationBarTitle("Today's schedule")
+                    .navigationBarTitle("Schedule")
             }
-            .navigationBarColor(backgroundColor: UIColor(red: 240/255, green: 190/255, blue: 70/255, alpha: 1.0), tintColor: .black)
+            .navigationBarColor(backgroundColor: UIColor(red: 9/255, green: 32/255, blue: 165/255, alpha: 0.8), tintColor: .white)
             .tabItem {
                 Image(systemName: "calendar")
                 Text("Tasks")

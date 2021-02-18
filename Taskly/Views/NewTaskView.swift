@@ -18,28 +18,6 @@ struct NewTaskView: View {
         NavigationView {
             Form {
                 Section {
-                    Text("Priority")
-                    Button(action: {
-                       showingActionSheet = true
-                    }) {
-                        HStack {
-                            Spacer()
-                            Text($task.priority.wrappedValue)
-                            Spacer()
-                        }
-                    }
-                    .actionSheet(isPresented: $showingActionSheet, content: {
-                        ActionSheet(title: Text("Priority"), message: Text("Select Priority"), buttons: [.default(Text("None")), .default(Text("Low"), action: {
-                            task.priority = "Low"
-                        }), .default(Text("Medium"), action: {
-                            task.priority = "Medium"
-                        }), .default(Text("High"), action: {
-                            task.priority = "High"
-                        }), .cancel(Text("Cancel"))])
-                    })
-                    
-                }
-                Section {
                     Text("Title")
                     TextField("Wake Up!", text: $task.title)
                 }

@@ -30,6 +30,10 @@ struct NewTaskView: View {
                     Text("Notes")
                     TextField("Notes", text: $task.note)
                 }
+                Section {
+                    Text("Color")
+                    ColorPicker("Color picker", selection: $task.color)
+                }
             }
             .navigationTitle("New Task")
             .navigationBarItems(trailing:

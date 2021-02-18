@@ -24,7 +24,6 @@ struct TaskCell: View {
                     Text(task.hour())
                         .padding(.trailing, 20.0)
                         .font(.headline)
-                    
                 }
                 HStack {
                     Text($task.note.wrappedValue)
@@ -36,17 +35,13 @@ struct TaskCell: View {
             }
         }
         .padding(.top, 10.0)
-        .background(Color.init(UIColor(red: 215/255, green: 216/255, blue: 240/255, alpha: 1/0)))
+        .background(task.color)
         .cornerRadius(10.0)
     }
 }
 
-public func update() {
-    
-}
-
 struct TaskCell_Previews: PreviewProvider {
     static var previews: some View {
-        TaskCell(task: testTask2).previewLayout(.sizeThatFits)
+        TaskCell(task: Task()).previewLayout(.sizeThatFits)
     }
 }

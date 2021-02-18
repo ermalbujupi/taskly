@@ -8,41 +8,35 @@
 import SwiftUI
 
 struct TaskCell: View {
-     
+    
     @StateObject var task = Task()
     
     var body: some View {
         HStack {
-            if task.completed {
-                Image(systemName: "checkmark.circle.fill")
-                    .padding()
-                    .font(.title)
-            } else {
-                Image(systemName: "checkmark.circle")
-                    .padding()
-                    .font(.title)
-            }
             VStack {
                 HStack() {
                     Text($task.title.wrappedValue)
-                        .padding(.leading, 10.0)
-                        .font(.title)
-                    Spacer()
-                    Text(task.hour())
-                        .padding()
+                        .bold()
+                        .padding(.leading, 20.0)
                         .font(.title2)
+                    Spacer()
+                    Image(systemName: "bell.fill")
+                    Text(task.hour())
+                        .padding(.trailing, 20.0)
+                        .font(.headline)
+                    
                 }
                 HStack {
                     Text($task.note.wrappedValue)
-                        .font(.title3)
-                        .padding(.leading, 10.0)
+                        .padding(.top, 10.0)
+                        .padding(.leading, 30.0)
                         .padding(.bottom, 10.0)
                     Spacer()
                 }
             }
         }
         .padding(.top, 10.0)
-        .background(task.completed ? Color.orange.opacity(0.8) : Color.gray.opacity(0.2))
+        .background(Color.init(UIColor(red: 215/255, green: 216/255, blue: 240/255, alpha: 1/0)))
         .cornerRadius(10.0)
     }
 }

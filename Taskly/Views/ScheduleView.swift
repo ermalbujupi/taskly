@@ -45,7 +45,6 @@ struct ScheduleView: View {
                         }
                 }
             }
-            .padding()
             .navigationBarItems(trailing: Button(action: {
                 showingCreateTaskSheet = true
             }) {

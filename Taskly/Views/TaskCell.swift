@@ -16,12 +16,15 @@ struct TaskCell: View {
             VStack {
                 HStack() {
                     Text($task.title.wrappedValue)
+                        .foregroundColor(.black)
                         .bold()
                         .padding(.leading, 20.0)
                         .font(.title2)
                     Spacer()
                     Image(systemName: "bell.fill")
+                        .foregroundColor(.black)
                     Text(task.hour())
+                        .foregroundColor(.black)
                         .padding(.trailing, 20.0)
                         .font(.headline)
                 }

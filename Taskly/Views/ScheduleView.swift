@@ -38,11 +38,12 @@ struct ScheduleView: View {
             }
             VStack {
                 ForEach(data.tasks) { task in
-                    TaskCell(task: task)
-                        .padding()
-                        .onTapGesture {
-                            data.completeTask(id: task.id)
-                        }
+                    NavigationLink(
+                        destination: NewTaskView(showingActionSheet: false, task: task, presentationMode: Environment(\.presentationMode)),
+                        label: {
+                            TaskCell(task: task)
+                                .padding()
+                        })
                 }
             }
             .navigationBarItems(trailing: Button(action: {
@@ -51,7 +52,10 @@ struct ScheduleView: View {
                 Text("Add")
             }
             .sheet(isPresented: $showingCreateTaskSheet) {
-                NewTaskView()
+                NavigationView {
+                    NewTaskView()
+                        .navigationTitle("New Task")
+                }
             })
         }
     }

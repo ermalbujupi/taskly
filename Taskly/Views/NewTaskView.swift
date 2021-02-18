@@ -15,7 +15,6 @@ struct NewTaskView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        NavigationView {
             Form {
                 Section {
                     Text("Title")
@@ -34,16 +33,15 @@ struct NewTaskView: View {
                     Text("Color")
                     ColorPicker("Color picker", selection: $task.color)
                 }
-            }
-            .navigationTitle("New Task")
-            .navigationBarItems(trailing:
-                Button(action: {
-                    DataController.shared.saveTask(task: task)
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Save")
-                }
-            )
+                .navigationTitle("New Task")
+                .navigationBarItems(trailing:
+                                        Button(action: {
+                                            DataController.shared.saveTask(task: task)
+                                            presentationMode.wrappedValue.dismiss()
+                                        }) {
+                                            Text("Save")
+                                        }
+                )
             
         }
     }

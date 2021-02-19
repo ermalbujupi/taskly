@@ -29,6 +29,7 @@ struct TaskCell: View {
                                 .bold()
                                 .padding(.leading, 20.0)
                                 .font(.title2)
+                                .fixedSize(horizontal: false, vertical: true)
                             Spacer()
                             Image(systemName: "bell.fill")
                                 .foregroundColor(.black)
@@ -41,7 +42,9 @@ struct TaskCell: View {
                             Text($task.note.wrappedValue)
                                 .foregroundColor(.black)
                                 .padding(.top, 10.0)
-                                .padding(.leading, 30.0)
+                                .padding(.leading, 20.0)
+                                .padding(.bottom, 5.0)
+                                .fixedSize(horizontal: false, vertical: true)
                             Spacer()
                         }
                     }

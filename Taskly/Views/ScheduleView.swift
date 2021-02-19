@@ -39,6 +39,7 @@ struct ScheduleView: View {
             VStack {
                 ForEach(data.tasks) { task in
                     TaskCell(task: task)
+                        .padding(.trailing, 20.0)
                 }
             }
             .navigationBarItems(trailing: Button(action: {

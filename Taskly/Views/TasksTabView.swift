@@ -14,7 +14,6 @@ struct TasksTabView: View {
                 ScheduleView()
                     .navigationBarTitle("Schedule")
             }
-            .navigationBarColor(backgroundColor: UIColor(red: 9/255, green: 32/255, blue: 165/255, alpha: 0.8), tintColor: .white)
             .tabItem {
                 Image(systemName: "calendar")
                 Text("Tasks")

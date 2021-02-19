@@ -38,12 +38,7 @@ struct ScheduleView: View {
             }
             VStack {
                 ForEach(data.tasks) { task in
-                    NavigationLink(
-                        destination: NewTaskView(showingActionSheet: false, task: task, presentationMode: Environment(\.presentationMode)),
-                        label: {
-                            TaskCell(task: task)
-                                .padding()
-                        })
+                    TaskCell(task: task)
                 }
             }
             .navigationBarItems(trailing: Button(action: {

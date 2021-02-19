@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		9839DBB125CF3B2E0006793E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBB025CF3B2E0006793E /* RegisterView.swift */; };
 		9839DBB425CF4AC70006793E /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839DBB325CF4AC70006793E /* TaskCell.swift */; };
 		98495B0125DC1F9E0064A99D /* CompletedTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98495B0025DC1F9E0064A99D /* CompletedTasks.swift */; };
+		984F076C25E069E800F2D1BB /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 984F076B25E069E800F2D1BB /* SwiftDate */; };
 		984F31CF25DD2CE500376C51 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F31CE25DD2CE500376C51 /* CustomNavigationBar.swift */; };
 		9894355F25CF4E72005CC936 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9894355E25CF4E72005CC936 /* ScheduleView.swift */; };
 		9894356425CF5D64005CC936 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9894356325CF5D64005CC936 /* Task.swift */; };
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				984F076C25E069E800F2D1BB /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +150,9 @@
 			dependencies = (
 			);
 			name = Taskly;
+			packageProductDependencies = (
+				984F076B25E069E800F2D1BB /* SwiftDate */,
+			);
 			productName = Taskly;
 			productReference = 9839DB8B25CDF98E0006793E /* Taskly.app */;
 			productType = "com.apple.product-type.application";
@@ -175,6 +180,9 @@
 				Base,
 			);
 			mainGroup = 9839DB8225CDF98E0006793E;
+			packageReferences = (
+				984F076A25E069E800F2D1BB /* XCRemoteSwiftPackageReference "SwiftDate" */,
+			);
 			productRefGroup = 9839DB8C25CDF98E0006793E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -413,6 +421,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		984F076A25E069E800F2D1BB /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		984F076B25E069E800F2D1BB /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 984F076A25E069E800F2D1BB /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9839DB8325CDF98E0006793E /* Project object */;
 }

@@ -25,4 +25,11 @@ class Task: ObservableObject, Identifiable {
         
         return dateFormatter.string(from: time)
     }
+    
+    public func taskOverDue(task: Task) -> Bool{
+        if task.time.isBeforeDate(Date(), granularity: .second) {
+            return true
+        }
+        return false
+    }
 }

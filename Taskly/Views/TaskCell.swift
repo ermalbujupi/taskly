@@ -6,10 +6,23 @@
 //
 
 import SwiftUI
+import SwiftDate
 
 struct TaskCell: View {
     
     @StateObject var task = Task()
+    
+    static let hourFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter
+    }()
+    
+    static let taskDateFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM HH:mm"
+        return formatter
+    }()
     
     var body: some View {
         HStack {
@@ -34,10 +47,27 @@ struct TaskCell: View {
                             Image(systemName: "bell.fill")
                                 .padding(.top, 5.0)
                                 .foregroundColor(.black)
-                            Text(task.hour())
-                                .foregroundColor(.black)
-                                .padding(.trailing, 20.0)
-                                .font(.headline)
+                            if task.time.isToday {
+                                Text(Self.hourFormat.string(from: task.time))
+                                    .foregroundColor(.black)
+                                    .padding(.trailing, 20.0)
+                                    .font(.headline)
+                            } else if task.time.isTomorrow {
+                                Text("Tomorrow \(Self.hourFormat.string(from: task.time))")
+                                    .foregroundColor(.black)
+                                    .padding(.trailing, 10.0)
+                                    .font(.headline)
+                            } else if task.taskOverDue(task: task) {
+                                Text(Self.taskDateFormat.string(from: task.time))
+                                    .foregroundColor(.red)
+                                    .padding(.trailing, 20.0)
+                                    .font(.headline)
+                            } else {
+                                Text(Self.taskDateFormat.string(from: task.time))
+                                    .foregroundColor(.black)
+                                    .padding(.trailing, 20.0)
+                                    .font(.headline)
+                            }
                         }
                         HStack {
                             Text($task.note.wrappedValue)
@@ -47,6 +77,15 @@ struct TaskCell: View {
                                 .padding(.bottom, 5.0)
                                 .fixedSize(horizontal: false, vertical: true)
                             Spacer()
+                        }
+                        HStack {
+                            Spacer()
+                            if task.taskOverDue(task: task) {
+                                Text("Task Overdue")
+                                    .bold()
+                                    .foregroundColor(.red)
+                                    .padding(.trailing, 20.0)
+                            }
                         }
                     }
                 })

@@ -15,7 +15,7 @@ class Task: ObservableObject, Identifiable {
     @Published var time = Date()
     @Published var note = ""
     @Published var completed = false
-    @Published var color = Color.orange
+    @Published var color = Color.blue.opacity(0.4)
     
     init () {}
     

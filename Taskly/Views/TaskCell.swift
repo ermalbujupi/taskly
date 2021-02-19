@@ -32,6 +32,7 @@ struct TaskCell: View {
                                 .fixedSize(horizontal: false, vertical: true)
                             Spacer()
                             Image(systemName: "bell.fill")
+                                .padding(.top, 5.0)
                                 .foregroundColor(.black)
                             Text(task.hour())
                                 .foregroundColor(.black)
@@ -48,10 +49,9 @@ struct TaskCell: View {
                             Spacer()
                         }
                     }
-                    .background(task.color)
-                    .cornerRadius(10.0)
                 })
         }
+        .border(Color.gray, width: 1.0)
     }
 }
 

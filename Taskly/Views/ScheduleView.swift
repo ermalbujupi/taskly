@@ -39,6 +39,7 @@ struct ScheduleView: View {
             VStack {
                 ForEach(data.tasks) { task in
                     TaskCell(task: task)
+                        .padding(.leading, 20.0)
                         .padding(.trailing, 20.0)
                 }
             }

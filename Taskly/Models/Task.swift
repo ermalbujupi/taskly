@@ -27,7 +27,7 @@ class Task: ObservableObject, Identifiable {
     }
     
     public func taskOverDue(task: Task) -> Bool{
-        if task.time.isBeforeDate(Date(), granularity: .second) {
+        if task.time.isBeforeDate(Date(), granularity: .minute) {
             return true
         }
         return false

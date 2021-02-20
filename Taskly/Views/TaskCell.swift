@@ -80,11 +80,17 @@ struct TaskCell: View {
                         }
                         HStack {
                             Spacer()
-                            if task.taskOverDue(task: task) {
+                            if task.taskOverDue(task: task) && !task.completed {
                                 Text("Task Overdue")
                                     .bold()
                                     .foregroundColor(.red)
                                     .padding(.trailing, 20.0)
+                            } else if task.completed {
+                                Text("Completed")
+                                    .bold()
+                                    .foregroundColor(.blue)
+                                    .padding(.trailing, 20.0)
+                                    .padding(.bottom, 5.0)
                             }
                         }
                     }

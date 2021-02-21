@@ -9,46 +9,44 @@ import SwiftUI
 
 struct NewTaskView: View {
     
-    @State var showingActionSheet = false
+    @State var title = ""
+    @State var notes = ""
+    @State var date = Date()
+    let onComplete: (String, String, Date) -> Void
     
-    @StateObject var task = TTask()
-    @Environment(\.presentationMode) var presentationMode
+    //    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
+        NavigationView {
             Form {
                 Section {
                     Text("Title")
-                    TextField("Wake Up!", text: $task.title)
+                    TextField("Wake Up!", text: $title)
                 }
                 Section {
                     Text("Date")
-                    DatePicker("Date", selection: $task.time, displayedComponents: [.date, .hourAndMinute])
+                    DatePicker("Date", selection: $date, displayedComponents: [.date, .hourAndMinute])
                         .datePickerStyle(GraphicalDatePickerStyle())
                 }
                 Section {
                     Text("Notes")
-                    TextField("Notes", text: $task.note)
-                }
-                Section {
-                    Text("Color")
-                    ColorPicker("Color picker", selection: $task.color)
+                    TextField("Notes", text: $notes)
                 }
                 .navigationTitle("New Task")
                 .navigationBarItems(trailing:
                                         Button(action: {
-                                            DataController.shared.saveTask(task: task)
-                                            presentationMode.wrappedValue.dismiss()
+                                            onComplete(
+                                                title.isEmpty ? "Task" : title,
+                                                notes.isEmpty ? "Task notes" : notes,
+                                                date
+                                            )
                                         }) {
                                             Text("Save")
                                         }
                 )
-            
+                
+            }
+            .navigationBarTitle(Text("Add Task"), displayMode: .inline)
         }
-    }
-}
-
-struct NewTaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewTaskView()
     }
 }

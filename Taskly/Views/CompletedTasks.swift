@@ -14,7 +14,8 @@ struct CompletedTasks: View {
     var body: some View {
         List {
             ForEach(data.completedTasks) { task in
-                TaskCell(task: task)
+                // TODO:- Handle this
+                //                TaskCell(task: task)
             }
         }
     }

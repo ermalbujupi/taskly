@@ -9,6 +9,16 @@ import SwiftUI
 
 struct ScheduleView: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(
+      entity: Task.entity(),
+      sortDescriptors: [
+//        NSSortDescriptor(keyPath: \Movie.title, ascending: true)
+      ]
+//        ,predicate: NSPredicate(format: "title contains 'ERMAL'")
+
+    ) var tasks: FetchedResults<Task>
+    
     @ObservedObject var data = DataController.shared
     @State var showingCreateTaskSheet = false
     @State var completed = false
@@ -37,10 +47,8 @@ struct ScheduleView: View {
                 Spacer()
             }
             VStack {
-                ForEach(data.tasks) { task in
-                    TaskCell(task: task)
-                        .padding(.leading, 20.0)
-                        .padding(.trailing, 20.0)
+                ForEach(tasks, id: \.title) {
+                    TaskCell(task: $0)
                 }
             }
             .navigationBarItems(trailing: Button(action: {
@@ -49,12 +57,31 @@ struct ScheduleView: View {
                 Text("Add")
             }
             .sheet(isPresented: $showingCreateTaskSheet) {
-                NavigationView {
-                    NewTaskView()
-                        .navigationTitle("New Task")
+                NewTaskView { title, notes, date in
+                    self.addTask(title: title, notes: notes, date: date)
+                    self.showingCreateTaskSheet = false
                 }
             })
         }
+    }
+    
+    func addTask(title: String, notes: String, date: Date) {
+      
+        let newTask = Task(context: managedObjectContext)
+
+        newTask.title = title
+        newTask.notes = notes
+        newTask.date = date
+
+        saveContext()
+    }
+    
+    func saveContext() {
+      do {
+        try managedObjectContext.save()
+      } catch {
+        print("Error saving managed object context: \(error)")
+      }
     }
 }
 

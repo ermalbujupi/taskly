@@ -11,7 +11,7 @@ struct NewTaskView: View {
     
     @State var showingActionSheet = false
     
-    @StateObject var task = Task()
+    @StateObject var task = TTask()
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {

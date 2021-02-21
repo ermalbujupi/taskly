@@ -11,10 +11,10 @@ class DataController: ObservableObject {
     
     static var shared = DataController()
     
-    @Published var tasks: [Task] = [test]
-    @Published var completedTasks: [Task] = []
+    @Published var tasks: [TTask] = [test]
+    @Published var completedTasks: [TTask] = []
     
-    func saveTask(task: Task) {
+    func saveTask(task: TTask) {
         if let id = tasks.firstIndex(where: { loopedTask -> Bool in
             return task.id == loopedTask.id
         }) {
@@ -44,8 +44,8 @@ class DataController: ObservableObject {
 }
 
 
-var test: Task = {
-    var t = Task()
+var test: TTask = {
+    var t = TTask()
     t.title = "Ermal"
     return t
 }()

@@ -10,7 +10,7 @@ import SwiftDate
 
 struct TaskCell: View {
     
-    @StateObject var task = Task()
+    @StateObject var task = TTask()
     
     static let hourFormat: DateFormatter = {
         let formatter = DateFormatter()
@@ -102,6 +102,6 @@ struct TaskCell: View {
 
 struct TaskCell_Previews: PreviewProvider {
     static var previews: some View {
-        TaskCell(task: Task()).previewLayout(.sizeThatFits)
+        TaskCell(task: TTask()).previewLayout(.sizeThatFits)
     }
 }

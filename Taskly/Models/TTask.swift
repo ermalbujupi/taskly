@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Task: ObservableObject, Identifiable {
+class TTask: ObservableObject, Identifiable {
     
     var id = UUID().uuidString
     @Published var title = ""
@@ -26,7 +26,7 @@ class Task: ObservableObject, Identifiable {
         return dateFormatter.string(from: time)
     }
     
-    public func taskOverDue(task: Task) -> Bool{
+    public func taskOverDue(task: TTask) -> Bool{
         if task.time.isBeforeDate(Date(), granularity: .minute) {
             return true
         }

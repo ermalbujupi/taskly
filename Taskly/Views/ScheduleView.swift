@@ -40,7 +40,7 @@ struct ScheduleView: View {
                 Spacer()
             }
             HStack {
-                Text("You have \(data.tasks.count) tasks.")
+                Text("You have \(tasks.count) tasks.")
                     .font(.title2)
                     .padding(.top, 20.0)
                     .padding(.leading, 20.0)
@@ -49,6 +49,8 @@ struct ScheduleView: View {
             VStack {
                 ForEach(tasks, id: \.title) {
                     TaskCell(task: $0)
+                        .padding(.leading, 20.0)
+                        .padding(.trailing, 20.0)
                 }
             }
             .navigationBarItems(trailing: Button(action: {

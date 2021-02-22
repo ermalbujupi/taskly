@@ -13,9 +13,8 @@ struct ScheduleView: View {
     @FetchRequest(
       entity: Task.entity(),
       sortDescriptors: [
-//        NSSortDescriptor(keyPath: \Movie.title, ascending: true)
+//        NSSortDescriptor(keyPath: \, ascending: true)
       ]
-//        ,predicate: NSPredicate(format: "title contains 'ERMAL'")
 
     ) var tasks: FetchedResults<Task>
     

@@ -88,11 +88,11 @@
 				9839DBA725CDFAF20006793E /* Views */,
 				98FFA0A025D04E4500D8229C /* Controller */,
 				9839DB9225CDF98E0006793E /* ContentView.swift */,
+				9875FBAA25E30B5700171708 /* Taskly.xcdatamodeld */,
 				9839DB9425CDF9900006793E /* Assets.xcassets */,
 				9839DB9925CDF9900006793E /* LaunchScreen.storyboard */,
 				9839DB9C25CDF9900006793E /* Info.plist */,
 				9839DB9625CDF9900006793E /* Preview Content */,
-				9875FBAA25E30B5700171708 /* Taskly.xcdatamodeld */,
 			);
 			path = Taskly;
 			sourceTree = "<group>";

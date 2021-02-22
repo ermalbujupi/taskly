@@ -50,23 +50,19 @@ struct TaskCell: View {
                             Text(Self.hourFormat.string(from: date))
                                 .foregroundColor(.black)
                                 .padding(.trailing, 20.0)
-                                .font(.headline)
                         } else if date.isTomorrow {
                             Text("Tomorrow \(Self.hourFormat.string(from: date))")
                                 .foregroundColor(.black)
                                 .padding(.trailing, 10.0)
-                                .font(.headline)
-                            // TODO: - Handle this
-//                        } else if task.taskOverDue(task: task) {
-//                            Text(Self.taskDateFormat.string(from: date))
-//                                .foregroundColor(.red)
-//                                .padding(.trailing, 20.0)
-//                                .font(.headline)
+                        } else if date.isInPast {
+                            Text(Self.taskDateFormat.string(from: date))
+                                .foregroundColor(.red)
+                                .padding(.trailing, 20.0)
                         } else {
                             Text(Self.taskDateFormat.string(from: date))
                                 .foregroundColor(.black)
                                 .padding(.trailing, 20.0)
-                                .font(.headline)
+                                
                         }
                     }
                     
@@ -90,19 +86,18 @@ struct TaskCell: View {
                             .padding(.trailing, 20.0)
                             .padding(.bottom, 5.0)
                     }
-                    // TODO: - Handle this
-//                    if task.taskOverDue(task: task) && !task.completed {
-//                        Text("Task Overdue")
-//                            .bold()
-//                            .foregroundColor(.red)
-//                            .padding(.trailing, 20.0)
-//                    } else if task.completed {
-//                        Text("Completed")
-//                            .bold()
-//                            .foregroundColor(.blue)
-//                            .padding(.trailing, 20.0)
-//                            .padding(.bottom, 5.0)
-//                    }
+                    if task.date!.isInPast && !task.completed {
+                        Text("Task Overdue")
+                            .bold()
+                            .foregroundColor(.red)
+                            .padding(.trailing, 20.0)
+                    } else if task.completed {
+                        Text("Completed")
+                            .bold()
+                            .foregroundColor(.blue)
+                            .padding(.trailing, 20.0)
+                            .padding(.bottom, 5.0)
+                    }
                 }
             }
         }

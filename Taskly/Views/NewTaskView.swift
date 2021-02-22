@@ -11,10 +11,9 @@ struct NewTaskView: View {
     
     @State var title = ""
     @State var notes = ""
-    @State var date = Date()
-    let onComplete: (String, String, Date) -> Void
+    @State var date = Calendar.current.date(byAdding: .hour, value: 1, to: Date())!
     
-    //    @Environment(\.presentationMode) var presentationMode
+    let onComplete: (String, String, Date) -> Void
     
     var body: some View {
         NavigationView {

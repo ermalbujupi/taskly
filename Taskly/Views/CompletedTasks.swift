@@ -6,14 +6,20 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct CompletedTasks: View {
 
-    @ObservedObject var data = DataController.shared
+    @FetchRequest(
+      entity: Task.entity(),
+      sortDescriptors: [
+      ],
+      predicate: NSPredicate(format: "completed == true")
+    ) var completedTasks: FetchedResults<Task>
 
     var body: some View {
         List {
-            ForEach(data.completedTasks) { task in
+            ForEach(completedTasks, id: \.title) { task in
                 TaskCell(task: task)
             }
         }

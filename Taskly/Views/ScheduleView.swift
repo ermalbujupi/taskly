@@ -9,6 +9,16 @@ import SwiftUI
 
 struct ScheduleView: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(
+      entity: Task.entity(),
+      sortDescriptors: [
+
+      ],
+      predicate: NSPredicate(format: "completed == false")
+
+    ) var tasks: FetchedResults<Task>
+    
     @ObservedObject var data = DataController.shared
     @State var showingCreateTaskSheet = false
     @State var completed = false
@@ -30,15 +40,15 @@ struct ScheduleView: View {
                 Spacer()
             }
             HStack {
-                Text("You have \(data.tasks.count) tasks.")
+                Text("You have \(tasks.count) tasks.")
                     .font(.title2)
                     .padding(.top, 20.0)
                     .padding(.leading, 20.0)
                 Spacer()
             }
             VStack {
-                ForEach(data.tasks) { task in
-                    TaskCell(task: task)
+                ForEach(tasks, id: \.title) {
+                    TaskCell(task: $0)
                         .padding(.leading, 20.0)
                         .padding(.trailing, 20.0)
                 }
@@ -49,12 +59,32 @@ struct ScheduleView: View {
                 Text("Add")
             }
             .sheet(isPresented: $showingCreateTaskSheet) {
-                NavigationView {
-                    NewTaskView()
-                        .navigationTitle("New Task")
+                NewTaskView { title, notes, date in
+                    self.addTask(title: title, notes: notes, date: date)
+                    self.showingCreateTaskSheet = false
                 }
             })
         }
+    }
+    
+    func addTask(title: String, notes: String, date: Date) {
+      
+        let newTask = Task(context: managedObjectContext)
+
+        newTask.title = title
+        newTask.notes = notes
+        newTask.date = date
+        newTask.completed = false
+
+        saveContext()
+    }
+    
+    func saveContext() {
+      do {
+        try managedObjectContext.save()
+      } catch {
+        print("Error saving managed object context: \(error)")
+      }
     }
 }
 

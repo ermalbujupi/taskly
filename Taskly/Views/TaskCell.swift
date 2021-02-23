@@ -10,7 +10,9 @@ import SwiftDate
 
 struct TaskCell: View {
     
-    @StateObject var task = Task()
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    let task: Task
     
     static let hourFormat: DateFormatter = {
         let formatter = DateFormatter()
@@ -31,72 +33,77 @@ struct TaskCell: View {
                 .padding(.leading, 10.0)
                 .onTapGesture {
                     task.completed = true
+                    updateTask()
                 }
-            NavigationLink(
-                destination: NewTaskView(showingActionSheet: false, task: task, presentationMode: Environment(\.presentationMode)),
-                label: {
-                    VStack {
-                        HStack() {
-                            Text($task.title.wrappedValue)
+            VStack {
+                HStack() {
+                    Text(task.title ?? "No Title")
+                        .foregroundColor(.black)
+                        .bold()
+                        .padding(.leading, 20.0)
+                        .font(.title2)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Spacer()
+                    Image(systemName: "bell.fill")
+                        .padding(.top, 5.0)
+                        .foregroundColor(.black)
+                    if let date = task.date {
+                        if date.isToday {
+                            Text(Self.hourFormat.string(from: date))
                                 .foregroundColor(.black)
-                                .bold()
-                                .padding(.leading, 20.0)
-                                .font(.title2)
-                                .fixedSize(horizontal: false, vertical: true)
-                            Spacer()
-                            Image(systemName: "bell.fill")
-                                .padding(.top, 5.0)
+                                .padding(.trailing, 20.0)
+                        } else if date.isTomorrow {
+                            Text("Tomorrow \(Self.hourFormat.string(from: date))")
                                 .foregroundColor(.black)
-                            if task.time.isToday {
-                                Text(Self.hourFormat.string(from: task.time))
-                                    .foregroundColor(.black)
-                                    .padding(.trailing, 20.0)
-                                    .font(.headline)
-                            } else if task.time.isTomorrow {
-                                Text("Tomorrow \(Self.hourFormat.string(from: task.time))")
-                                    .foregroundColor(.black)
-                                    .padding(.trailing, 10.0)
-                                    .font(.headline)
-                            } else if task.taskOverDue(task: task) {
-                                Text(Self.taskDateFormat.string(from: task.time))
-                                    .foregroundColor(.red)
-                                    .padding(.trailing, 20.0)
-                                    .font(.headline)
-                            } else {
-                                Text(Self.taskDateFormat.string(from: task.time))
-                                    .foregroundColor(.black)
-                                    .padding(.trailing, 20.0)
-                                    .font(.headline)
-                            }
-                        }
-                        HStack {
-                            Text($task.note.wrappedValue)
+                                .padding(.trailing, 10.0)
+                        } else if date.isInPast {
+                            Text(Self.taskDateFormat.string(from: date))
+                                .foregroundColor(.red)
+                                .padding(.trailing, 20.0)
+                        } else {
+                            Text(Self.taskDateFormat.string(from: date))
                                 .foregroundColor(.black)
-                                .padding(.top, 10.0)
-                                .padding(.leading, 20.0)
-                                .padding(.bottom, 5.0)
-                                .fixedSize(horizontal: false, vertical: true)
-                            Spacer()
-                        }
-                        HStack {
-                            Spacer()
-                            if task.taskOverDue(task: task) && !task.completed {
-                                Text("Task Overdue")
-                                    .bold()
-                                    .foregroundColor(.red)
-                                    .padding(.trailing, 20.0)
-                            } else if task.completed {
-                                Text("Completed")
-                                    .bold()
-                                    .foregroundColor(.blue)
-                                    .padding(.trailing, 20.0)
-                                    .padding(.bottom, 5.0)
-                            }
+                                .padding(.trailing, 20.0)
                         }
                     }
-                })
+                }
+                
+                HStack {
+                    Text(task.notes ?? "")
+                        .foregroundColor(.black)
+                        .padding(.top, 10.0)
+                        .padding(.leading, 20.0)
+                        .padding(.bottom, 5.0)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    if task.completed {
+                        Text("Completed")
+                            .bold()
+                            .foregroundColor(.blue)
+                            .padding(.trailing, 20.0)
+                            .padding(.bottom, 5.0)
+                    }
+                    if task.date!.isInPast && !task.completed {
+                        Text("Task Overdue")
+                            .bold()
+                            .foregroundColor(.red)
+                            .padding(.trailing, 20.0)
+                    }
+                }
+            }
         }
         .border(Color.gray, width: 1.0)
+    }
+    
+    private func updateTask() {
+        do {
+          try managedObjectContext.save()
+        } catch {
+          print("Error saving managed object context: \(error)")
+        }
     }
 }
 

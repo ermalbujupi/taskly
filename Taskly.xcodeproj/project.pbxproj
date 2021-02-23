@@ -20,8 +20,8 @@
 		98495B0125DC1F9E0064A99D /* CompletedTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98495B0025DC1F9E0064A99D /* CompletedTasks.swift */; };
 		984F076C25E069E800F2D1BB /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 984F076B25E069E800F2D1BB /* SwiftDate */; };
 		984F31CF25DD2CE500376C51 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F31CE25DD2CE500376C51 /* CustomNavigationBar.swift */; };
+		9875FBAC25E30B5700171708 /* Taskly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9875FBAA25E30B5700171708 /* Taskly.xcdatamodeld */; };
 		9894355F25CF4E72005CC936 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9894355E25CF4E72005CC936 /* ScheduleView.swift */; };
-		9894356425CF5D64005CC936 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9894356325CF5D64005CC936 /* Task.swift */; };
 		98FFA09E25D0086E00D8229C /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FFA09D25D0086E00D8229C /* NewTaskView.swift */; };
 		98FFA0A225D04E5B00D8229C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FFA0A125D04E5B00D8229C /* DataController.swift */; };
 		98FFA0AA25D0903800D8229C /* TasksTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FFA0A925D0903800D8229C /* TasksTabView.swift */; };
@@ -42,8 +42,8 @@
 		9839DBB325CF4AC70006793E /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		98495B0025DC1F9E0064A99D /* CompletedTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasks.swift; sourceTree = "<group>"; };
 		984F31CE25DD2CE500376C51 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		9875FBAB25E30B5700171708 /* Taskly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Taskly.xcdatamodel; sourceTree = "<group>"; };
 		9894355E25CF4E72005CC936 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
-		9894356325CF5D64005CC936 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		98FFA09D25D0086E00D8229C /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
 		98FFA0A125D04E5B00D8229C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		98FFA0A925D0903800D8229C /* TasksTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTabView.swift; sourceTree = "<group>"; };
@@ -82,10 +82,10 @@
 			children = (
 				9839DB8E25CDF98E0006793E /* AppDelegate.swift */,
 				9839DB9025CDF98E0006793E /* SceneDelegate.swift */,
-				9894356225CF5D51005CC936 /* Models */,
 				9839DBA725CDFAF20006793E /* Views */,
 				98FFA0A025D04E4500D8229C /* Controller */,
 				9839DB9225CDF98E0006793E /* ContentView.swift */,
+				9875FBAA25E30B5700171708 /* Taskly.xcdatamodeld */,
 				9839DB9425CDF9900006793E /* Assets.xcassets */,
 				9839DB9925CDF9900006793E /* LaunchScreen.storyboard */,
 				9839DB9C25CDF9900006793E /* Info.plist */,
@@ -116,14 +116,6 @@
 				984F31CE25DD2CE500376C51 /* CustomNavigationBar.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		9894356225CF5D51005CC936 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				9894356325CF5D64005CC936 /* Task.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		98FFA0A025D04E4500D8229C /* Controller */ = {
@@ -216,11 +208,11 @@
 				9839DBA925CDFB0A0006793E /* WelcomeView.swift in Sources */,
 				9839DBB125CF3B2E0006793E /* RegisterView.swift in Sources */,
 				98FFA0A225D04E5B00D8229C /* DataController.swift in Sources */,
+				9875FBAC25E30B5700171708 /* Taskly.xcdatamodeld in Sources */,
 				984F31CF25DD2CE500376C51 /* CustomNavigationBar.swift in Sources */,
 				9894355F25CF4E72005CC936 /* ScheduleView.swift in Sources */,
 				98FFA09E25D0086E00D8229C /* NewTaskView.swift in Sources */,
 				9839DB9125CDF98E0006793E /* SceneDelegate.swift in Sources */,
-				9894356425CF5D64005CC936 /* Task.swift in Sources */,
 				98FFA0AA25D0903800D8229C /* TasksTabView.swift in Sources */,
 				98495B0125DC1F9E0064A99D /* CompletedTasks.swift in Sources */,
 				9839DB9325CDF98E0006793E /* ContentView.swift in Sources */,
@@ -440,6 +432,19 @@
 			productName = SwiftDate;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		9875FBAA25E30B5700171708 /* Taskly.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9875FBAB25E30B5700171708 /* Taskly.xcdatamodel */,
+			);
+			currentVersion = 9875FBAB25E30B5700171708 /* Taskly.xcdatamodel */;
+			path = Taskly.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9839DB8325CDF98E0006793E /* Project object */;
 }

@@ -10,7 +10,6 @@ import SwiftDate
 
 struct TaskCell: View {
     
-    //    @StateObject var task = TTask()
     let task: Task
     
     static let hourFormat: DateFormatter = {
@@ -65,9 +64,8 @@ struct TaskCell: View {
                                 
                         }
                     }
-                    
-                    
                 }
+                
                 HStack {
                     Text(task.notes ?? "")
                         .foregroundColor(.black)
@@ -91,12 +89,6 @@ struct TaskCell: View {
                             .bold()
                             .foregroundColor(.red)
                             .padding(.trailing, 20.0)
-                    } else if task.completed {
-                        Text("Completed")
-                            .bold()
-                            .foregroundColor(.blue)
-                            .padding(.trailing, 20.0)
-                            .padding(.bottom, 5.0)
                     }
                 }
             }

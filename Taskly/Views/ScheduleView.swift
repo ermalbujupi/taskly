@@ -13,8 +13,9 @@ struct ScheduleView: View {
     @FetchRequest(
       entity: Task.entity(),
       sortDescriptors: [
-//        NSSortDescriptor(keyPath: \, ascending: true)
-      ]
+
+      ],
+      predicate: NSPredicate(format: "completed == false")
 
     ) var tasks: FetchedResults<Task>
     
@@ -73,6 +74,7 @@ struct ScheduleView: View {
         newTask.title = title
         newTask.notes = notes
         newTask.date = date
+        newTask.completed = false
 
         saveContext()
     }

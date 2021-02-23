@@ -10,6 +10,8 @@ import SwiftDate
 
 struct TaskCell: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     let task: Task
     
     static let hourFormat: DateFormatter = {
@@ -31,6 +33,7 @@ struct TaskCell: View {
                 .padding(.leading, 10.0)
                 .onTapGesture {
                     task.completed = true
+                    updateTask()
                 }
             VStack {
                 HStack() {
@@ -61,7 +64,6 @@ struct TaskCell: View {
                             Text(Self.taskDateFormat.string(from: date))
                                 .foregroundColor(.black)
                                 .padding(.trailing, 20.0)
-                                
                         }
                     }
                 }
@@ -94,6 +96,14 @@ struct TaskCell: View {
             }
         }
         .border(Color.gray, width: 1.0)
+    }
+    
+    private func updateTask() {
+        do {
+          try managedObjectContext.save()
+        } catch {
+          print("Error saving managed object context: \(error)")
+        }
     }
 }
 

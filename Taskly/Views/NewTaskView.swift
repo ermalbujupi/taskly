@@ -30,6 +30,7 @@ struct NewTaskView: View {
                 Section {
                     Text("Notes")
                     TextField("Notes", text: $notes)
+                        .disableAutocorrection(true)
                 }
                 .navigationTitle("New Task")
                 .navigationBarItems(trailing:

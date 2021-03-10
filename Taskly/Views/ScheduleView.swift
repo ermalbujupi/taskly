@@ -30,40 +30,42 @@ struct ScheduleView: View {
     }()
     
     var body: some View {
-        ScrollView {
-            HStack {
-                Text("\(Date(), formatter: Self.taskDateFormat)")
-                    .font(.title2)
-                    .bold()
-                    .padding(.top, 20.0)
-                    .padding(.leading, 20.0)
-                Spacer()
-            }
-            HStack {
-                Text("You have \(tasks.count) tasks.")
-                    .font(.title2)
-                    .padding(.top, 20.0)
-                    .padding(.leading, 20.0)
-                Spacer()
-            }
-            VStack {
-                ForEach(tasks, id: \.title) {
-                    TaskCell(task: $0)
+        GeometryReader { g in
+            ScrollView {
+                HStack {
+                    Text("\(Date(), formatter: Self.taskDateFormat)")
+                        .font(.title2)
+                        .bold()
+                        .padding(.top, 20.0)
                         .padding(.leading, 20.0)
-                        .padding(.trailing, 20.0)
+                    Spacer()
                 }
-            }
-            .navigationBarItems(trailing: Button(action: {
-                showingCreateTaskSheet = true
-            }) {
-                Text("Add")
-            }
-            .sheet(isPresented: $showingCreateTaskSheet) {
-                NewTaskView { title, notes, date in
-                    self.addTask(title: title, notes: notes, date: date)
-                    self.showingCreateTaskSheet = false
+                HStack {
+                    Text("You have \(tasks.count) tasks.")
+                        .font(.title2)
+                        .padding(.top, 20.0)
+                        .padding(.leading, 20.0)
+                    Spacer()
                 }
-            })
+                List {
+                    ForEach(tasks, id: \.title) {
+                        TaskCell(task: $0)
+                    }
+                    .onDelete(perform: deleteTask(at:))
+                }
+                .frame(width: g.size.width, height: g.size.height, alignment: .leading)
+                .navigationBarItems(trailing: Button(action: {
+                    showingCreateTaskSheet = true
+                }) {
+                    Text("Add")
+                }
+                .sheet(isPresented: $showingCreateTaskSheet) {
+                    NewTaskView { title, notes, date in
+                        self.addTask(title: title, notes: notes, date: date)
+                        self.showingCreateTaskSheet = false
+                    }
+                })
+            }
         }
     }
     
@@ -76,6 +78,15 @@ struct ScheduleView: View {
         newTask.date = date
         newTask.completed = false
 
+        saveContext()
+    }
+    
+    func deleteTask(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let task = self.tasks[index]
+            self.managedObjectContext.delete(task)
+        }
+        
         saveContext()
     }
     

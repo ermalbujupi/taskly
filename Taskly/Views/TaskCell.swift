@@ -41,6 +41,7 @@ struct TaskCell: View {
                         .foregroundColor(.black)
                         .bold()
                         .padding(.leading, 20.0)
+                        .padding(.top, 5.0)
                         .font(.title2)
                         .fixedSize(horizontal: false, vertical: true)
                     Spacer()
@@ -76,7 +77,11 @@ struct TaskCell: View {
                         .padding(.bottom, 5.0)
                         .fixedSize(horizontal: false, vertical: true)
                     Spacer()
+                    Image(systemName: task.category ?? "")
+                        .padding()
+                        .font(.title)
                 }
+                
                 HStack {
                     Spacer()
                     if task.completed {

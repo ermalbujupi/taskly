@@ -60,8 +60,8 @@ struct ScheduleView: View {
                     Text("Add")
                 }
                 .sheet(isPresented: $showingCreateTaskSheet) {
-                    NewTaskView { title, notes, date in
-                        self.addTask(title: title, notes: notes, date: date)
+                    NewTaskView { title, notes, date, category in
+                        self.addTask(title: title, notes: notes, date: date, category: category)
                         self.showingCreateTaskSheet = false
                     }
                 })
@@ -69,13 +69,14 @@ struct ScheduleView: View {
         }
     }
     
-    func addTask(title: String, notes: String, date: Date) {
+    func addTask(title: String, notes: String, date: Date, category: String) {
       
         let newTask = Task(context: managedObjectContext)
 
         newTask.title = title
         newTask.notes = notes
         newTask.date = date
+        newTask.category = category
         newTask.completed = false
 
         saveContext()
